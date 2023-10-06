@@ -1,0 +1,15 @@
+input[type=text]{
+    width: 40%;
+    padding: 8px 2px;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+}
+.searchbar-in{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    div{
+        padding-right: 5px;
+    }
+}

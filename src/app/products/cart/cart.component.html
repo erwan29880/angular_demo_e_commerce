@@ -1,0 +1,49 @@
+<div *ngIf="data">
+    <div>
+        <table class="table-cart">
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>nombre</th>
+                    <th>prix</th>
+                    <th>-</th>
+                </tr>    
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data ; let id = index">
+                    <td>
+                        <div class="td-title-image">
+                            <div class="td-image-flex" [ngStyle]="{ 'background-image': getCurrentSlideUrl(item.image)}"></div>
+                            <div class="td-title-flex">{{item.title}}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="td-ligne">
+                            <div>{{item.nombre}}</div>
+                            <div class="add-soustract">
+                                <div (click)="onSuprItem($event, id)" class="add-soustract-div">-</div>
+                                <div (click)="onAddItem($event, id)" class="add-soustract-div">+</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{item.price}}</td>
+                    <td (click)="onSupr($event, id)" class="suprr">&#10060;</td>
+                </tr>
+            </tbody>
+                <tr class="table-somme">
+                    <th></th>
+                    <th>Total</th>
+                    <th>{{somme}}</th>
+                    <th></th>
+                </tr>
+                <tr class="table-valider">
+                    <td></td>
+                    <td colspan="2"><button (click)="onValidateCart()" >valider le panier</button></td>
+                    <td></td>
+                    
+                </tr>
+        </table>
+      </div>
+
+
+</div>

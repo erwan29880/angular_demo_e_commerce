@@ -1,0 +1,17 @@
+form {
+    .form-group{
+        margin-bottom: 7px;
+        .label {
+            size: 1.2rem;
+            font-weight: bold;
+        }
+        .input {
+            input[type=text]{
+                width: 50%;
+                padding: 8px 2px;
+                border: 1px solid lightgray;
+                border-radius: 7px;
+            }
+        }
+    }
+}

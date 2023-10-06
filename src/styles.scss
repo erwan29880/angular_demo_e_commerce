@@ -1,1 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
+$radius7: 7px;
+$margin-globale: 1.5rem 0rem;
+$padding-globale: 1.5rem 0.7rem;
+$padding-menu-li: 0.7rem 1.5rem;
+$border-gray: 1px solid lightgray;
+$color-title: rgb(82, 77, 232); 
+$card-height: 200px;
+$card-in-flex-height: 100px;
+$card-width: 400px;
+$card-border: 3px solid lightgray;
+$shadow: 3px 2px 2px lightgray;
+
+
+body {
+    width: 80%;
+    margin: auto;
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        width: 98%;
+        margin:auto;
+    }
+
+}
+
+nav {
+    width: 100%;
+    margin: auto;
+    border-bottom: $border-gray;
+    margin-bottom: 20px;
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        li {
+            display: inline-block;
+            font-size: 1.12rem;
+            font-weight: bold;
+            border: $border-gray;
+            border-radius: $radius7;
+            padding: $padding-menu-li;
+            background-color: $color-title;
+            opacity: 0.78;
+        }
+        :hover {
+            background-color: blue;
+        }
+    }
+}
+
+
+h1 {
+    color: $color-title;
+    text-align: center;
+}
+
+.div1 {
+    border: $border-gray;
+    margin: $margin-globale;
+    padding: $padding-globale;
+    border-radius: $radius7;
+    img {
+        border: $border-gray;
+    }
+}
+
+.div2{
+    @extend .div1;
+    color: blue;
+}
+
+button {
+    padding: 5px 10px 5px 10px;
+    background-color: $color-title;
+    color: white;
+    border-radius: $radius7;
+}
+
+// loader  
+.centrer-loader{
+    width:82px;
+    height: 82px;
+    margin: auto;
+}
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid black;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: black transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+footer{
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    box-shadow: 3px 2px 2px lightgray;
+    margin-bottom:20px;
+}

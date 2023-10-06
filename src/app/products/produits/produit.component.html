@@ -1,0 +1,30 @@
+<div *ngIf="erreur">{{erreur}}</div>
+
+<app-cartbar></app-cartbar>
+
+<div *ngIf="!data">
+    <app-loader></app-loader>
+</div>
+<div *ngIf="data">
+    <div class="carde-o">
+        <div class="title"><span (click)="onChangeUrl()" class="retour">⬅️</span>{{data.title}}</div>
+        <div class="price"><span class="{{ data.price | prixColor }}">{{data.price}} €</span></div>
+        <div class="categorie"><span class="{{ data.category | categorie }}">{{data.category}}</span></div>
+        <div class="rating">{{ data.rating | rating }}</div>
+        <div class="add-item"><button (click)="onAddItem($event, data.title, data.price, data.thumbnail)">&#10011;</button></div>        
+        <div class="description">{{data.description}}</div>
+    </div>
+     
+    <div class="div-slider">
+        <div class="slider">
+            <div>
+                <div (click)="goToPrevious()" class="leftArrow">❰</div>
+                <div (click)="goToNext()" class="rightArrow">❱</div>
+            </div>
+            <div class="slide" (click)="goToNext()" [ngStyle]="{ 'background-image': getCurrentSlideUrl() }"></div>
+            <div class="dotsContainer">
+                <div *ngFor="let slide of data.images ; let slideIndex = index"  [ngStyle]="{color: checkActive(slideIndex)}" (click)="goToSlide(slideIndex)" class="dot">●</div>
+            </div>
+        </div>
+    </div>
+</div>

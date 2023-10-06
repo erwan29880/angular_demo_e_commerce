@@ -1,0 +1,26 @@
+<app-cartbar></app-cartbar>
+
+
+
+<div *ngIf="!data">
+<app-loader></app-loader>
+</div>
+
+<div *ngIf="loader$ | async">
+    <app-loader></app-loader>
+</div>
+<div *ngIf="data" class="carde-container">
+    <div *ngFor="let dataItem of data">
+        <div appHighlightCard class="carde" >
+            <div (click)="onChangeUrl($event, dataItem.id)">
+                <div class="title">{{dataItem.title}}</div>
+                <div class="im"><img class="ima" [src]="dataItem.thumbnail" alt=""></div>
+                <div class="price"><span class="{{ dataItem.price | prixColor }}">{{dataItem.price}} €</span></div>
+                <div class="categorie"><span class="{{ dataItem.category | categorie }}">{{dataItem.category}}</span></div>
+                <div class="rating">{{ dataItem.rating | rating }}</div>
+            </div>
+            <div class="add-item"><button (click)="onAddItem($event, dataItem.title, dataItem.price, dataItem.thumbnail)">&#10011;</button></div>
+            <div class="description">{{dataItem.description}}</div>
+        </div>
+        </div>
+</div>

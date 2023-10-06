@@ -1,0 +1,107 @@
+<div *ngIf="notSubmitted">
+    <h2>Rentrez vos informations d'expédition</h2>
+
+    <form [formGroup]="infos" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <div class="label">
+                <label for="nom">Nom :</label>
+            </div>
+            <div class="input">
+                <input type="text" 
+                formControlName="nom" id="nom">
+            </div>
+            <div *ngIf="nom.errors">            
+                <div class="formError" *ngFor="let err of nom.errors | keyvalue ">
+                    <p class="formErrorInd" *ngIf="err.key === 'maxlength'">le nom ne peut pas avoir plus de 10 caractères</p>
+                    <p class="formErrorInd" *ngIf="err.key === 'pattern'">il y a un caractère non autorisé</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="label">
+                <label for="prenom">Prénom :</label>
+            </div>
+            <div class="input">
+                <input type="text" 
+                formControlName="prenom" id="prenom">
+            </div>
+            <div *ngIf="prenom.errors">            
+                <div class="formError" *ngFor="let err of prenom.errors | keyvalue ">
+                    <p class="formErrorInd" *ngIf="err.key === 'maxlength'">le prénom ne peut pas avoir plus de 10 caractères</p>
+                    <p class="formErrorInd" *ngIf="err.key === 'pattern'">il y a un caractère non autorisé</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="label">
+                <label for="email">Email :</label>
+            </div>
+            <div class="input">
+                <input type="text" 
+                formControlName="email" id="email">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="label">
+                <label for="adresse">Adresse :</label>
+            </div>
+            <div class="input">
+                <input type="text" 
+                formControlName="adresse" id="adresse">
+            </div>
+            <div *ngIf="adresse.errors">            
+                <div class="formError" *ngFor="let err of adresse.errors | keyvalue ">
+                    <p class="formErrorInd" *ngIf="err.key === 'maxlength'">l'adresse ne peut pas avoir plus de 10 caractères</p>
+                    <p class="formErrorInd" *ngIf="err.key === 'pattern'">il y a un caractère non autorisé</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="label">
+                <label for="zipcode">Code postal :</label>
+            </div>
+            <div class="input">
+                <input type="text" 
+                formControlName="zipcode" id="zipcode">
+            </div>
+            <div *ngIf="zipcode.errors">            
+                <div class="formError" *ngFor="let err of zipcode.errors | keyvalue ">
+                    <p class="formErrorInd" *ngIf="err.key === 'maxlength'">le code postal doit avoir 5 chiffres</p>
+                    <p class="formErrorInd" *ngIf="err.key === 'pattern'">le code postal doit être numérique</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="label">
+                <label for="ville">Ville :</label>
+            </div>
+            <div class="input">
+                <input type="text" 
+                formControlName="ville" id="ville">
+            </div>
+            <div *ngIf="ville.errors">            
+                <div class="formError" *ngFor="let err of ville.errors | keyvalue ">
+                    <p class="formErrorInd" *ngIf="err.key === 'maxlength'">la ville ne peut pas avoir plus de 10 caractères</p>
+                    <p class="formErrorInd" *ngIf="err.key === 'pattern'">il y a un caractère non autorisé</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button [disabled]="!infos.valid" type="submit">valider la commande</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div *ngIf="!notSubmitted"> 
+   <h2>Votre commande a été validée !</h2>
+
+</div>
